@@ -22,7 +22,7 @@ class CreateTransactionService {
     const balance = this.transactionsRepository.getBalance();
 
     if (type === 'outcome' && value > balance.total) {
-      throw Error('Invalid type of transaction');
+      throw Error('The outcome exceeded the total value');
     }
 
     const transaction = this.transactionsRepository.create({
